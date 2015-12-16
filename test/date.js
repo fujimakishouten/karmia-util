@@ -6,7 +6,7 @@
 
 // Variables
 var expect = require('expect.js'),
-    kutil = require('../');
+    utility = require('../');
 
 
 // Test
@@ -16,11 +16,11 @@ describe('karmia-util', function () {
             it('Should configure date', function (done) {
                 var date = new Date(2016, 0, 1, 0, 0, 0),
                     offset = 3 * 60 * 60 * 1000,
-                    config = {date: {date: date, offset: offset}};
-                kutil.date.configure(config);
+                    config = {date: date, offset: offset};
+                utility.date.configure(config);
 
-                expect(kutil.date.offset).to.be(offset);
-                expect(kutil.date.date.getTime()).to.be(date.getTime());
+                expect(utility.date.offset).to.be(offset);
+                expect(utility.date.date.getTime()).to.be(date.getTime());
 
                 done();
             });
@@ -30,10 +30,10 @@ describe('karmia-util', function () {
         describe('getDate', function (){
             it('Should get date', function (done) {
                 var date = new Date(2016, 0, 1, 0, 0, 0),
-                    config = {date: {date: date}};
-                kutil.date.configure(config);
+                    config = {date: date};
+                utility.date.configure(config);
 
-                expect(kutil.date.getDate().getTime()).to.be(date.getTime());
+                expect(utility.date.getDate().getTime()).to.be(date.getTime());
                 done();
             });
         });
@@ -42,10 +42,10 @@ describe('karmia-util', function () {
         describe('getTime', function () {
             it('Should get time', function (done) {
                 var date = new Date(2016, 0, 1, 0, 0, 0),
-                    config = {date: {date: date}};
-                kutil.date.configure(config);
+                    config = {date: date};
+                utility.date.configure(config);
 
-                expect(kutil.date.getTime()).to.be(date.getTime());
+                expect(utility.date.getTime()).to.be(date.getTime());
 
                 done();
             });
@@ -56,10 +56,10 @@ describe('karmia-util', function () {
             it('Should get YMD at 02:59:59.999', function (done) {
                 var date = new Date(2016, 0, 1, 2, 59, 59, 999),
                     offset = 3 * 60 * 60 * 1000,
-                    config = {date: {date: date, offset: offset}};
-                kutil.date.configure(config);
+                    config = {date: date, offset: offset};
+                utility.date.configure(config);
 
-                expect(kutil.date.getYMD()).to.eql({year: 2015, month: 12, date: 31});
+                expect(utility.date.getYMD()).to.eql({year: 2015, month: 12, date: 31});
 
                 done();
             });
@@ -68,10 +68,10 @@ describe('karmia-util', function () {
             it('Should get YMD at 03:00:00.000', function (done) {
                 var date = new Date(2016, 0, 1, 3, 0, 0, 0),
                     offset = 3 * 60 * 60 * 1000,
-                    config = {date: {date: date, offset: offset}};
-                kutil.date.configure(config);
+                    config = {date: date, offset: offset};
+                utility.date.configure(config);
 
-                expect(kutil.date.getYMD()).to.eql({year: 2016, month: 1, date: 1});
+                expect(utility.date.getYMD()).to.eql({year: 2016, month: 1, date: 1});
 
                 done();
             });

@@ -6,7 +6,7 @@
 
 // Variables
 var expect = require('expect.js'),
-    kutil = require('../');
+    utility = require('../');
 
 
 // Test
@@ -17,14 +17,14 @@ describe('karmia-util', function () {
                 var algorithm = 'md5',
                     string = 'test';
 
-                expect(kutil.crypto.hash(algorithm, string)).to.have.length(32);
+                expect(utility.crypto.hash(algorithm, string)).to.have.length(32);
             });
 
             it('Should calculate sha1 hash', function () {
                 var algorithm = 'sha1',
                     string = 'test';
 
-                expect(kutil.crypto.hash(algorithm, string)).to.have.length(40);
+                expect(utility.crypto.hash(algorithm, string)).to.have.length(40);
             });
         });
 
@@ -32,7 +32,7 @@ describe('karmia-util', function () {
             it('Should calculate sha256 hash', function () {
                 var string = 'test';
 
-                expect(kutil.crypto.sha256(string)).to.have.length(64);
+                expect(utility.crypto.sha256(string)).to.have.length(64);
             });
         });
 
@@ -40,7 +40,7 @@ describe('karmia-util', function () {
             it('Should calculate sha512 hash', function () {
                 var string = 'test';
 
-                expect(kutil.crypto.sha512(string)).to.have.length(128);
+                expect(utility.crypto.sha512(string)).to.have.length(128);
             });
         });
 
@@ -50,7 +50,7 @@ describe('karmia-util', function () {
                     password = 'password',
                     string = 'test';
 
-                expect(kutil.crypto.encrypt(algorithm, password, string)).to.have.length(8);
+                expect(utility.crypto.encrypt(algorithm, password, string)).to.have.length(8);
             });
         });
 
@@ -59,8 +59,8 @@ describe('karmia-util', function () {
                 var algorithm = 'aes-256-ctr',
                     password = 'password',
                     string = 'test',
-                    data = kutil.crypto.encrypt(algorithm, password, string);
-                expect(kutil.crypto.decrypt(algorithm, password, data)).to.be(string);
+                    data = utility.crypto.encrypt(algorithm, password, string);
+                expect(utility.crypto.decrypt(algorithm, password, data)).to.be(string);
             });
         });
     });
