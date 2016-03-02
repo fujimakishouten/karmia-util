@@ -1,6 +1,6 @@
 {
   "name": "karmia-utility",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Utility module of Karmia JavaScript library",
   "author": "Kazuma Fujimaki <fujimaki-k@fujimakishouten.com>",
   "repository": {
