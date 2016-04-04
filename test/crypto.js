@@ -30,6 +30,22 @@ describe('karmia-util', function () {
            expect(kcrypto.sha512('Hello, world.', 'hex')).to.have.length(128);
         });
 
+        it('Should get HMAC-MD5 digest', function () {
+            expect(kcrypto.hmac('md5', 'Hello, world', 'secret', 'hex')).to.have.length(32);
+        });
+
+        it('Should get HMAC-SHA1 digest', function () {
+            expect(kcrypto.sha1hmac('Hello, world', 'secret', 'hex')).to.have.length(40);
+        });
+
+        it('Should get HMAC-SHA256 digest', function () {
+            expect(kcrypto.sha256hmac('Hello, world', 'secret', 'hex')).to.have.length(64);
+        });
+
+        it('Should get HMAC-SHA512 digest', function () {
+            expect(kcrypto.sha512hmac('Hello, world', 'secret', 'hex')).to.have.length(128);
+        });
+
         it('Should stretching hash', function () {
             const data = 'Hello, world.',
                 sha512 = kcrypto.sha512(data, 'hex'),
