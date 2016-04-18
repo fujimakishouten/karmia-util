@@ -141,7 +141,7 @@ describe('karmia-util', function () {
             it('Should format full date/time', function (done) {
                 const now = new Date('2014-08-03 09:00:00'),
                     format = 'crU',
-                    result = '2014-08-03T00:00:00.000ZSun, 03 Aug 2014 09:00:00 +09001407024000';
+                    result = '2014-08-03T00:00:00.000ZSun, 03 Aug 2014 09:00:00 +09001407024000000';
 
                 expect(utility.date.format(format, now)).to.be(result);
 
