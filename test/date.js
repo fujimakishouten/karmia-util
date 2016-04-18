@@ -76,5 +76,86 @@ describe('karmia-util', function () {
                 done();
             });
         });
+
+        describe('format', function () {
+            it('Should format date', function (done) {
+                const now = new Date('2014-08-03 09:00:00'),
+                    format = 'dDjlNSwz',
+                    result = '03Sun3Sunday7rd0214';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format week', function (done) {
+                const now = new Date('2014-08-03 09:00:00'),
+                    format = 'W',
+                    result = '31';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format month', function (done) {
+                const now = new Date('2014-08-03 09:00:00'),
+                    format = 'FmMnt',
+                    result = 'August08Aug831';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format year', function (done) {
+                const now = new Date('2014-08-03 09:00:00'),
+                    format = 'LoYy',
+                    result = '02014201414';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format time', function (done) {
+                const now = new Date('2014-08-03 21:00:00'),
+                    format = 'aAgGhHisu',
+                    result = 'pmPM92109210000000000';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format timezone', function (done) {
+                const now = new Date('2014-08-03 09:00:00'),
+                    format = 'OPTZ',
+                    result = '+0900+09:00JST-540';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format full date/time', function (done) {
+                const now = new Date('2014-08-03 09:00:00'),
+                    format = 'crU',
+                    result = '2014-08-03T00:00:00.000ZSun, 03 Aug 2014 09:00:00 +09001407024000';
+
+                expect(utility.date.format(format, now)).to.be(result);
+
+                done();
+            });
+
+            it('Should format leap year', function (done) {
+                expect(utility.date.format('L', new Date('2000-01-01 09:00:00'))).to.be('1');
+                expect(utility.date.format('L', new Date('2001-01-01 09:00:00'))).to.be('0');
+                expect(utility.date.format('L', new Date('2016-01-01 09:00:00'))).to.be('1');
+                expect(utility.date.format('L', new Date('2100-01-01 09:00:00'))).to.be('0');
+
+                done();
+            });
+        });
     });
 });
