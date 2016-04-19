@@ -120,8 +120,8 @@ describe('karmia-util', function () {
 
             it('Should format time', function (done) {
                 const now = new Date('2014-08-03 21:00:00'),
-                    format = 'aAgGhHisu',
-                    result = 'pmPM92109210000000000';
+                    format = 'aABgGhHisu',
+                    result = 'pmPM54192109210000000000';
 
                 expect(utility.date.format(format, now)).to.be(result);
 
