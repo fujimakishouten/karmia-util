@@ -15,41 +15,73 @@ const crypto = require('crypto'),
 describe('karmia-util', function () {
     describe('crypto', function () {
         it('Should get MD5 hash', function () {
-            expect(kcrypto.hash('md5', 'Hello, world.', 'hex')).to.have.length(32);
+            const result = kcrypto.hash('md5', 'Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(32);
+        });
+
+        it('Should get encoded result', function () {
+            const data = 'Hello, world.',
+                buffer = kcrypto.hash('md5', data),
+                encoded = kcrypto.hash('md5', data, 'hex');
+
+            expect(buffer.toString('hex')).to.be(encoded);
         });
 
         it('Should get SHA1 hash', function () {
-            expect(kcrypto.sha1('Hello, world.', 'hex')).to.have.length(40);
+            const result = kcrypto.sha1('Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(40);
         });
 
         it('Should get SHA256 hash', function () {
-            expect(kcrypto.sha256('Hello, world.', 'hex')).to.have.length(64);
+            const result = kcrypto.sha256('Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(64);
         });
 
         it('Should get SHA512 hash', function () {
-           expect(kcrypto.sha512('Hello, world.', 'hex')).to.have.length(128);
+            const result = kcrypto.sha512('Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(128);
         });
 
         it('Should get HMAC-MD5 digest', function () {
-            expect(kcrypto.hmac('md5', 'Hello, world', 'secret', 'hex')).to.have.length(32);
+            const result = kcrypto.hmac('md5', 'secret', 'Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(32);
         });
 
         it('Should get HMAC-SHA1 digest', function () {
-            expect(kcrypto.sha1hmac('Hello, world', 'secret', 'hex')).to.have.length(40);
+            const result = kcrypto.sha1hmac('secret', 'Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(40);
         });
 
         it('Should get HMAC-SHA256 digest', function () {
-            expect(kcrypto.sha256hmac('Hello, world', 'secret', 'hex')).to.have.length(64);
+            const result = kcrypto.sha256hmac('secret', 'Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(64);
         });
 
         it('Should get HMAC-SHA512 digest', function () {
-            expect(kcrypto.sha512hmac('Hello, world', 'secret', 'hex')).to.have.length(128);
+            const result = kcrypto.sha512hmac('secret', 'Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(128);
         });
 
         it('Should stretching hash', function () {
             const data = 'Hello, world.',
-                sha512 = kcrypto.sha512(data, 'hex'),
-                result = kcrypto.stretching('sha512', data, 10, 'hex');
+                sha512 = kcrypto.sha512(data),
+                result = kcrypto.stretching('sha512', data, 10);
 
             expect(result).to.not.be(sha512);
         });
@@ -69,7 +101,7 @@ describe('karmia-util', function () {
                 encrypted = kcrypto.encrypt(algorithm, password, data),
                 result = kcrypto.decrypt(algorithm, password, encrypted);
 
-            expect(result).to.be(data);
+            expect(result.toString('utf-8')).to.be(data);
         });
 
         describe('Should encrypt data with iv' , function () {
@@ -102,7 +134,7 @@ describe('karmia-util', function () {
                     encrypted = kcrypto.encryptiv(algorithm, password, iv, data),
                     result = kcrypto.decryptiv(algorithm, password, iv, encrypted);
 
-                expect(result).to.be(data);
+                expect(result.toString('utf-8')).to.be(data);
             });
 
             it('Mode: GCM', function () {
@@ -113,7 +145,7 @@ describe('karmia-util', function () {
                     encrypted = kcrypto.encryptiv(algorithm, password, iv, data),
                     result = kcrypto.decryptiv(algorithm, password, iv, encrypted);
 
-                expect(result).to.be(data);
+                expect(result.toString('utf-8')).to.be(data);
             });
         });
     });
