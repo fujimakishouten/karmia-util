@@ -243,6 +243,48 @@ utility.string.random(16, {lower: false, special: false});
 
 ### string
 
+#### trim
+- string ```<string>```
+- mask_character ```<string>``` Default: " \t\n\r\0\x0B"
+
+```JavaScript
+// Trim whitespaces
+const string = '    Hello, world.    ';
+utility.string.trim(string);
+
+// Trim specified characters
+const string = '"Hello, world."';
+utility.string.trim(string, '"');
+```
+
+#### ltrim
+- string ```<string>```
+- mask_character ```<string>``` Default: " \t\n\r\0\x0B"
+
+```JavaScript
+// Trim whitespaces
+const string = '    Hello, world.';
+utility.string.trim(string);
+
+// Trim specified characters
+const string = '"Hello, world.';
+utility.string.trim(string, '"');
+```
+
+#### rtrim
+- string ```<string>```
+- mask_character ```<string>``` Default: " \t\n\r\0\x0B"
+
+```JavaScript
+// Trim whitespaces
+const string = 'Hello, world.    ';
+utility.string.trim(string);
+
+// Trim specified characters
+const string = 'Hello, world."';
+utility.string.trim(string, '"');
+```
+
 #### unquote
 - string  ```<string>```
 

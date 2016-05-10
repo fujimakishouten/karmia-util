@@ -13,6 +13,27 @@ var util = require('util'),
 // Test
 describe('karmia-util', function () {
     describe('string', function () {
+        describe('trim', function () {
+            it('Should trim whitespace', function () {
+                const string = 'Hello, world.';
+                expect(utility.string.trim(util.format('\t   %s   \r\n', string))).to.be(string);
+            });
+
+            it('Should trim specified character', function () {
+                expect(utility.string.trim('abc', 'bad')).to.be('c');
+            });
+
+            it('Should trim left string', function () {
+                const string = 'Hello, world.';
+                expect(utility.string.ltrim(util.format('\t   %s   \r\n', string))).to.be(util.format('%s   \r\n', string));
+            });
+
+            it('Should trim right string', function () {
+                const string = 'Hello, world.';
+                expect(utility.string.rtrim(util.format('\t   %s   \r\n', string))).to.be(util.format('\t   %s', string));
+            });
+        });
+
         describe('unquote', function () {
             describe('Should unquote string', function () {
                 it('Not quoted', function (done) {
