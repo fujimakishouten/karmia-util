@@ -21,14 +21,6 @@ describe('karmia-util', function () {
             expect(result.toString('hex')).to.have.length(32);
         });
 
-        it('Should get encoded result', function () {
-            const data = 'Hello, world.',
-                buffer = kcrypto.hash('md5', data),
-                encoded = kcrypto.hash('md5', data, 'hex');
-
-            expect(buffer.toString('hex')).to.be(encoded);
-        });
-
         it('Should get SHA1 hash', function () {
             const result = kcrypto.sha1('Hello, world.');
 
@@ -58,21 +50,21 @@ describe('karmia-util', function () {
         });
 
         it('Should get HMAC-SHA1 digest', function () {
-            const result = kcrypto.sha1hmac('secret', 'Hello, world.');
+            const result = kcrypto.hmac_sha1('secret', 'Hello, world.');
 
             expect(result).to.be.an(Buffer);
             expect(result.toString('hex')).to.have.length(40);
         });
 
         it('Should get HMAC-SHA256 digest', function () {
-            const result = kcrypto.sha256hmac('secret', 'Hello, world.');
+            const result = kcrypto.hmac_sha256('secret', 'Hello, world.');
 
             expect(result).to.be.an(Buffer);
             expect(result.toString('hex')).to.have.length(64);
         });
 
         it('Should get HMAC-SHA512 digest', function () {
-            const result = kcrypto.sha512hmac('secret', 'Hello, world.');
+            const result = kcrypto.hmac_sha512('secret', 'Hello, world.');
 
             expect(result).to.be.an(Buffer);
             expect(result.toString('hex')).to.have.length(128);
