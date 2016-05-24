@@ -21,6 +21,13 @@ describe('karmia-util', function () {
             expect(result.toString('hex')).to.have.length(32);
         });
 
+        it('Should get SHA512/256 hash', function () {
+            const result = kcrypto.hash('sha512/256', 'Hello, world.');
+
+            expect(result).to.be.an(Buffer);
+            expect(result.toString('hex')).to.have.length(64);
+        });
+
         it('Should get SHA1 hash', function () {
             const result = kcrypto.sha1('Hello, world.');
 
