@@ -152,5 +152,33 @@ describe('karmia-util', function () {
                 });
             });
         });
+
+        describe('toBoolean', function () {
+            it('Should be true', function () {
+                expect(utility.string.toBoolean('true')).to.be(true);
+                expect(utility.string.toBoolean('True')).to.be(true);
+                expect(utility.string.toBoolean('TRUE')).to.be(true);
+                expect(utility.string.toBoolean('true1')).to.be(true);
+                expect(utility.string.toBoolean('false1')).to.be(true);
+            });
+
+            it('Should be false', function () {
+                expect(utility.string.toBoolean('false')).to.be(false);
+                expect(utility.string.toBoolean('False')).to.be(false);
+                expect(utility.string.toBoolean('FALSE')).to.be(false);
+            });
+
+            it('Should not be true', function () {
+                expect(utility.string.toBoolean(0)).to.be(false);
+                expect(utility.string.toBoolean('')).to.be(false);
+                expect(utility.string.toBoolean(false)).to.be(false);
+            });
+
+            it('Should not be false', function () {
+                expect(utility.string.toBoolean(1)).to.be(true);
+                expect(utility.string.toBoolean('0')).to.be(true);
+                expect(utility.string.toBoolean(true)).to.be(true);
+            });
+        });
     });
 });

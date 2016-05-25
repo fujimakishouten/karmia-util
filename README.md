@@ -302,3 +302,25 @@ utility.string.unquote(string);
 const string = 'key1=value1, key2=value2';
 utility.string.parse(string, /,? /, '=');
 ```
+
+#### toBoolean
+- string ```<string>```
+
+```JavaScript
+// Should be true
+utility.string.toBoolean('true');
+utility.string.toBoolean('True');
+utility.string.toBoolean('TRUE');
+utility.string.toBoolean('0');
+utility.string.toBoolean(1);
+utility.string.toBoolean(true);
+utility.string.toBoolean('false_1');
+
+// Should be false
+utility.string.toBoolean('false');
+utility.string.toBoolean('False');
+utility.string.toBoolean('FALSE');
+utility.string.toBoolean('');
+utility.string.toBoolean(0);
+utility.string.toBoolean(false);
+```
