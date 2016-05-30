@@ -7,7 +7,7 @@
 // Variables
 var util = require('util'),
     expect = require('expect.js'),
-    utility = require('../');
+    utility = require('../')();
 
 
 // Test

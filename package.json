@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.5.10",
+    "version": "0.6.0",
     "description": "Utility module of Karmia JavaScript library",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",
@@ -14,6 +14,7 @@
         "test": "./node_modules/.bin/mocha ./test"
     },
     "dependencies": {
+        "co": ">=4.6.0",
         "lodash": ">=4.11.1",
         "js-sha512": ">=0.2.2"
     },

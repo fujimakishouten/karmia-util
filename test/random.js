@@ -6,7 +6,7 @@
 
 // Variables
 const expect = require('expect.js'),
-    utility = require('../'),
+    utility = require('../')(),
     random = utility.random;
 
 

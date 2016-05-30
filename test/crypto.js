@@ -6,8 +6,9 @@
 
 // Variables
 const crypto = require('crypto'),
+    co = require('co'),
     expect = require('expect.js'),
-    utility = require('../'),
+    utility = require('../')(),
     kcrypto = utility.crypto;
 
 
@@ -101,6 +102,16 @@ describe('karmia-util', function () {
                 result = kcrypto.decrypt(algorithm, password, encrypted);
 
             expect(result.toString('utf-8')).to.be(data);
+        });
+
+        describe('iv', function () {
+            it('Should get iv', function (done) {
+                co(function* () {
+                    expect(yield kcrypto.iv()).to.have.length(12);
+
+                    done();
+                });
+            });
         });
 
         describe('Should encrypt data with iv' , function () {
