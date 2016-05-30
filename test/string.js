@@ -122,6 +122,12 @@ describe('karmia-util', function () {
                     done();
                 });
 
+                it('Empty string', function (done) {
+                    expect(utility.string.parse('')).to.eql({});
+
+                    done();
+                });
+
                 it('Authorize header', function (done) {
                     const format = 'Digest username="%s", realm="%s", nonce="%s", uri="%s", ' +
                             'algorithm=%s, response="%s", qop=%s, nc=%s, cnonce="%s"',
