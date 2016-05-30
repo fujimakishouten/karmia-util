@@ -78,6 +78,21 @@ describe('karmia-util', function () {
             });
         });
 
+        describe('zfill', function () {
+            it('Should padding left with zero', function (done) {
+                const number = 1;
+
+                expect(utility.string.zfill(number, '0')).to.be('1');
+                expect(utility.string.zfill(number, '1')).to.be('1');
+                expect(utility.string.zfill(number, '2')).to.be('01');
+                expect(utility.string.zfill(number, '3')).to.be('001');
+                expect(utility.string.zfill(number, '4')).to.be('0001');
+                expect(utility.string.zfill(number, '5')).to.be('00001');
+
+                done();
+            });
+        });
+
         describe('parse', function () {
             describe('Should parse string', function () {
                 it('Set delimiter', function (done) {
