@@ -1,6 +1,12 @@
 # karmia-utility
 Utility module of Karmia JavaScript library
 
+## Usage
+```JavaScript
+const karmia_utility = require('karmia-utility'),
+    utility = karmia_utility();
+```
+
 ## crypto
 
 ### hash
@@ -89,6 +95,11 @@ utility.crypto.hmac_sha512('secret', Buffer.from('text'), 'binary');
 
 
 ### encrypt
+
+#### iv()
+```JavaScript
+const iv = utility.crypto.iv();
+```
 
 #### encrypt(algorithm, password, buffer, encoding)
 - algorithm ```<string>```
@@ -217,7 +228,7 @@ utility.date.format('Y-m-d H:i:s', new Date('1999-08-03 00:00:00'));
 
 ### random
 
-#### random(length, options)
+#### string(length, options)
 - length ```<number>```
 - options ```<Object>```
 
@@ -238,6 +249,13 @@ utility.string.random(16, {upper: false, special: false});
 utility.string.random(16, {lower: false, special: false});
 ```
 
+#### integer(max, min)
+- max ```<number>``` Default: Number.MAX_SAFE_INTEGER
+- min ```<number>``` Default: 0
+
+```JavaScript
+utility.random.integer(); // 0〜Number.MAX_SAFE_INTEGER
+```
 
 ## string
 

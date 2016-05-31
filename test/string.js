@@ -7,7 +7,8 @@
 // Variables
 var util = require('util'),
     expect = require('expect.js'),
-    utility = require('../')();
+    utility = require('../lib/string'),
+    kstring = new utility();
 
 
 // Test
@@ -16,21 +17,21 @@ describe('karmia-util', function () {
         describe('trim', function () {
             it('Should trim whitespace', function () {
                 const string = 'Hello, world.';
-                expect(utility.string.trim(util.format('\t   %s   \r\n', string))).to.be(string);
+                expect(kstring.trim(util.format('\t   %s   \r\n', string))).to.be(string);
             });
 
             it('Should trim specified character', function () {
-                expect(utility.string.trim('abc', 'bad')).to.be('c');
+                expect(kstring.trim('abc', 'bad')).to.be('c');
             });
 
             it('Should trim left string', function () {
                 const string = 'Hello, world.';
-                expect(utility.string.ltrim(util.format('\t   %s   \r\n', string))).to.be(util.format('%s   \r\n', string));
+                expect(kstring.ltrim(util.format('\t   %s   \r\n', string))).to.be(util.format('%s   \r\n', string));
             });
 
             it('Should trim right string', function () {
                 const string = 'Hello, world.';
-                expect(utility.string.rtrim(util.format('\t   %s   \r\n', string))).to.be(util.format('\t   %s', string));
+                expect(kstring.rtrim(util.format('\t   %s   \r\n', string))).to.be(util.format('\t   %s', string));
             });
         });
 
@@ -39,21 +40,21 @@ describe('karmia-util', function () {
                 it('Not quoted', function (done) {
                     const string = 'Hello, world.';
 
-                    expect(utility.string.unquote(util.format('%s', string))).to.be(string);
+                    expect(kstring.unquote(util.format('%s', string))).to.be(string);
 
                     done();
                 });
 
                 it('Single quote', function (done) {
                     const string = 'Hello, world.';
-                    expect(utility.string.unquote(util.format("'%s'", string))).to.be(string);
+                    expect(kstring.unquote(util.format("'%s'", string))).to.be(string);
 
                     done();
                 });
 
                 it('Double quote', function (done) {
                     const string = 'Hello, world.';
-                    expect(utility.string.unquote(util.format('"%s"', string))).to.be(string);
+                    expect(kstring.unquote(util.format('"%s"', string))).to.be(string);
 
                     done();
                 });
@@ -63,7 +64,7 @@ describe('karmia-util', function () {
                 it('Not quoted', function (done) {
                     const string = '"Hello," world.';
 
-                    expect(utility.string.unquote(util.format('%s', string))).to.be(string);
+                    expect(kstring.unquote(util.format('%s', string))).to.be(string);
 
                     done();
                 });
@@ -71,7 +72,7 @@ describe('karmia-util', function () {
                 it('Mismatch', function (done) {
                     const string = '"Hello, world.' + "'";
 
-                    expect(utility.string.unquote(util.format('%s', string))).to.be(string);
+                    expect(kstring.unquote(util.format('%s', string))).to.be(string);
 
                     done();
                 });
@@ -82,12 +83,12 @@ describe('karmia-util', function () {
             it('Should padding left with zero', function (done) {
                 const number = 1;
 
-                expect(utility.string.zfill(number, '0')).to.be('1');
-                expect(utility.string.zfill(number, '1')).to.be('1');
-                expect(utility.string.zfill(number, '2')).to.be('01');
-                expect(utility.string.zfill(number, '3')).to.be('001');
-                expect(utility.string.zfill(number, '4')).to.be('0001');
-                expect(utility.string.zfill(number, '5')).to.be('00001');
+                expect(kstring.zfill(number, '0')).to.be('1');
+                expect(kstring.zfill(number, '1')).to.be('1');
+                expect(kstring.zfill(number, '2')).to.be('01');
+                expect(kstring.zfill(number, '3')).to.be('001');
+                expect(kstring.zfill(number, '4')).to.be('0001');
+                expect(kstring.zfill(number, '5')).to.be('00001');
 
                 done();
             });
@@ -97,7 +98,7 @@ describe('karmia-util', function () {
             describe('Should parse string', function () {
                 it('Set delimiter', function (done) {
                     const string = 'key1=value1:key2=value2',
-                        result = utility.string.parse(string, ':');
+                        result = kstring.parse(string, ':');
 
                     expect(result.key1).to.be('value1');
                     expect(result.key2).to.be('value2');
@@ -107,7 +108,7 @@ describe('karmia-util', function () {
 
                 it('Set separator', function (done) {
                     const string = 'key1:value1 key2:value2',
-                        result = utility.string.parse(string, ' ', ':');
+                        result = kstring.parse(string, ' ', ':');
 
                     expect(result.key1).to.be('value1');
                     expect(result.key2).to.be('value2');
@@ -117,7 +118,7 @@ describe('karmia-util', function () {
 
                 it('Parameter includes single quote', function (done) {
                     const string = 'key1=value1, key2=value2, key3=value' + "'" + '3',
-                        result = utility.string.parse(string);
+                        result = kstring.parse(string);
 
                     expect(result.key1).to.be('value1');
                     expect(result.key2).to.be('value2');
@@ -128,7 +129,7 @@ describe('karmia-util', function () {
 
                 it('Parameter includes double quote', function (done) {
                     const string = 'key1=value1, key2=value2, key3=value"3',
-                        result = utility.string.parse(string);
+                        result = kstring.parse(string);
 
                     expect(result.key1).to.be('value1');
                     expect(result.key2).to.be('value2');
@@ -138,7 +139,7 @@ describe('karmia-util', function () {
                 });
 
                 it('Empty string', function (done) {
-                    expect(utility.string.parse('')).to.eql({});
+                    expect(kstring.parse('')).to.eql({});
 
                     done();
                 });
@@ -156,7 +157,7 @@ describe('karmia-util', function () {
                         nc = '00000001',
                         cnonce = 'CNONCE',
                         string = util.format(format, username, realm, nonce, uri, algorithm, response, qop, nc, cnonce),
-                        result = utility.string.parse(string);
+                        result = kstring.parse(string);
 
                     expect(result.Digest).to.be('Digest');
                     expect(result.username).to.be(username);
@@ -176,29 +177,29 @@ describe('karmia-util', function () {
 
         describe('toBoolean', function () {
             it('Should be true', function () {
-                expect(utility.string.toBoolean('true')).to.be(true);
-                expect(utility.string.toBoolean('True')).to.be(true);
-                expect(utility.string.toBoolean('TRUE')).to.be(true);
-                expect(utility.string.toBoolean('true1')).to.be(true);
-                expect(utility.string.toBoolean('false1')).to.be(true);
+                expect(kstring.toBoolean('true')).to.be(true);
+                expect(kstring.toBoolean('True')).to.be(true);
+                expect(kstring.toBoolean('TRUE')).to.be(true);
+                expect(kstring.toBoolean('true1')).to.be(true);
+                expect(kstring.toBoolean('false1')).to.be(true);
             });
 
             it('Should be false', function () {
-                expect(utility.string.toBoolean('false')).to.be(false);
-                expect(utility.string.toBoolean('False')).to.be(false);
-                expect(utility.string.toBoolean('FALSE')).to.be(false);
+                expect(kstring.toBoolean('false')).to.be(false);
+                expect(kstring.toBoolean('False')).to.be(false);
+                expect(kstring.toBoolean('FALSE')).to.be(false);
             });
 
             it('Should not be true', function () {
-                expect(utility.string.toBoolean(0)).to.be(false);
-                expect(utility.string.toBoolean('')).to.be(false);
-                expect(utility.string.toBoolean(false)).to.be(false);
+                expect(kstring.toBoolean(0)).to.be(false);
+                expect(kstring.toBoolean('')).to.be(false);
+                expect(kstring.toBoolean(false)).to.be(false);
             });
 
             it('Should not be false', function () {
-                expect(utility.string.toBoolean(1)).to.be(true);
-                expect(utility.string.toBoolean('0')).to.be(true);
-                expect(utility.string.toBoolean(true)).to.be(true);
+                expect(kstring.toBoolean(1)).to.be(true);
+                expect(kstring.toBoolean('0')).to.be(true);
+                expect(kstring.toBoolean(true)).to.be(true);
             });
         });
     });
