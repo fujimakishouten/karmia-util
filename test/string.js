@@ -35,6 +35,15 @@ describe('karmia-util', function () {
             });
         });
 
+        describe('normalize', function () {
+            it('Should normalize string', function () {
+                const string = '\u202b１２３\r\nＡＢＣ\rｄｅｆ\nｱｲｳｴｵｶﾞ',
+                    result = '123\nABC\ndef\nアイウエオガ';
+
+                expect(kstring.normalize(string, 'NFKC')).to.be(result);
+            });
+        });
+
         describe('unquote', function () {
             describe('Should unquote string', function () {
                 it('Not quoted', function (done) {
