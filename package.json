@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "description": "Utility module of Karmia JavaScript library",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",

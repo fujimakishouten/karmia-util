@@ -303,6 +303,15 @@ const string = 'Hello, world."';
 utility.string.trim(string, '"');
 ```
 
+#### normalize
+- string ```<string>```
+- form ```<string>``` Default: "NFKC"
+
+```JavaScript
+const string = '\u202b１２３\r\nＡＢＣ\rｄｅｆ\nｱｲｳｴｵｶﾞ';
+utility.string.normalize(string); // Return: '123\nABC\ndef\nアイウエオガ'
+```
+
 #### unquote
 - string  ```<string>```
 
