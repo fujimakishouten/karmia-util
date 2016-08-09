@@ -4,37 +4,8 @@
 
 
 
-// Variables
-const utilities = require('./lib');
-
-
-/**
- * KarmiaUtility
- *
- * @class
- */
-class KarmiaUtility {
-    /**
-     * Constructor
-     *
-     * @constructs KarmiaUtility
-     */
-    constructor(options) {
-        const self = this;
-        self.options = options || {};
-        Object.keys(utilities).forEach(function (key) {
-            self[key] = new utilities[key](self.options);
-        });
-    }
-}
-
-
 // Export module
-module.exports = function (options) {
-    options = options || {};
-
-    return new KarmiaUtility(options);
-};
+module.exports = require('./lib');
 
 
 

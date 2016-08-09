@@ -7,8 +7,9 @@
 // Variables
 var util = require('util'),
     expect = require('expect.js'),
-    utility = require('../lib/string'),
-    kstring = new utility();
+    karmia_utility = require('../lib'),
+    utility = karmia_utility(),
+    kstring = utility.string;
 
 
 // Test

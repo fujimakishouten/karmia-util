@@ -6,8 +6,9 @@
 
 // Variables
 const expect = require('expect.js'),
-    utility = require('../lib/random'),
-    krandom = new utility();
+    karmia_utility = require('../lib'),
+    utility = karmia_utility(),
+    krandom = utility.random;
 
 
 // Test

@@ -1,5 +1,5 @@
 # karmia-utility
-Utility module of Karmia JavaScript library
+Karmia utility suites
 
 ## Usage
 ```JavaScript

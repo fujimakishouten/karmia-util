@@ -7,12 +7,13 @@
 // Variables
 const crypto = require('crypto'),
     expect = require('expect.js'),
-    utility = require('../lib/crypto'),
-    kcrypto = new utility();
+    karmia_utility = require('../'),
+    utility = karmia_utility(),
+    kcrypto = utility.crypto;
 
 
 // Test
-describe('karmia-util', function () {
+describe('karmia-utility', function () {
     describe('crypto', function () {
         describe('hash', function () {
             it('Should get MD5 hash', function () {

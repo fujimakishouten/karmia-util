@@ -6,12 +6,13 @@
 
 // Variables
 var expect = require('expect.js'),
-    utility = require('../lib/date'),
-    kdate = new utility();
+    karmia_utility = require('../'),
+    utility = karmia_utility(),
+    kdate = utility.date;
 
 
 // Test
-describe('karmia-util', function () {
+describe('karmia-utility', function () {
     describe('date', function () {
         describe('setOffset', function () {
             it('Should set offset', function () {
