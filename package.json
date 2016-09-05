@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "description": "Karmia utility suites",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",
@@ -14,10 +14,10 @@
         "test": "./node_modules/.bin/mocha ./test"
     },
     "dependencies": {
-        "karmia-utility-crypto": ">=0.1.1",
-        "karmia-utility-date": ">=0.1.0",
-        "karmia-utility-random": ">=0.1.0",
-        "karmia-utility-string": ">=0.1.0"
+        "karmia-utility-crypto": ">=0.3.0",
+        "karmia-utility-date": ">=0.3.0",
+        "karmia-utility-random": ">=0.3.0",
+        "karmia-utility-string": ">=0.3.0"
     },
     "devDependencies": {
         "mocha": ">=2.4.5",
