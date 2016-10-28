@@ -19,7 +19,8 @@ describe('karmia-utility', function () {
             it('Should set offset', function () {
                 var offset = 3 * 60 * 60 * 1000;
                 kdate.setOffset(offset);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.offset).to.be(offset);
             });
@@ -85,7 +86,8 @@ describe('karmia-utility', function () {
                     format = 'dDjlNSwz',
                     result = '03Sun3Sunday7rd0214';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
@@ -95,7 +97,8 @@ describe('karmia-utility', function () {
                     format = 'W',
                     result = '31';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
@@ -105,7 +108,8 @@ describe('karmia-utility', function () {
                     format = 'FmMnt',
                     result = 'August08Aug831';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
@@ -115,7 +119,8 @@ describe('karmia-utility', function () {
                     format = 'LoYy',
                     result = '02014201414';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
@@ -125,7 +130,8 @@ describe('karmia-utility', function () {
                     format = 'aABgGhHisu',
                     result = 'pmPM54192109210000000000';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
@@ -135,7 +141,8 @@ describe('karmia-utility', function () {
                     format = 'OPTZ',
                     result = '+0900+09:00JST-540';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
@@ -145,14 +152,16 @@ describe('karmia-utility', function () {
                     format = 'crU',
                     result = '2014-08-03T00:00:00.000ZSun, 03 Aug 2014 09:00:00 +09001407024000000';
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format(format, now)).to.be(result);
             });
 
             it('Should format leap year', function () {
                 kdate.setOffset(0);
-                Reflect.deleteProperty(kdate, 'date');
+
+                delete kdate['date'];
 
                 expect(kdate.format('L', new Date('2000-01-01 09:00:00'))).to.be('1');
                 expect(kdate.format('L', new Date('2001-01-01 09:00:00'))).to.be('0');
