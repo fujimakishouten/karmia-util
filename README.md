@@ -7,6 +7,66 @@ const karmia_utility = require('karmia-utility'),
     utility = karmia_utility();
 ```
 
+
+## array
+
+### array
+
+#### unique
+- list ```<Array>```
+
+Removes duplicate values from an array
+
+
+#### count
+- list ```<Array>```
+- item ```<*>```
+
+Count item in list
+
+
+#### range
+- start ```<number>```
+- stop ```<number>```
+- step ```<number>``` Default: 1
+
+Get array of integer from start to end
+
+
+#### flip
+- list ```<Array>```
+
+
+#### intersection
+- list1 ```<Array>```
+- list2 ```<Array>```
+
+Get intersection of two arrays
+
+```javascript
+const list1 = ['a', 'b', 'b', 'c', 'c', 'c'],
+    list2 = ['a', 'b'];
+
+console.log(karray.difference(list1, list2));
+// => ['a', 'b']
+```
+
+
+#### difference
+- list1 ```<Array>```
+- list2 ```<Array>```
+
+Get difference of two arrays
+
+```javascript
+const list1 = ['a', 'b', 'b', 'c', 'c', 'c'],
+    list2 = ['a', 'b'];
+
+console.log(karray.difference(list1, list2));
+// => ['c', 'c', 'c']
+```
+
+
 ## crypto
 
 ### hash
