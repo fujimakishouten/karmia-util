@@ -261,46 +261,46 @@ utility.random.integer(); // 0〜Number.MAX_SAFE_INTEGER
 
 ### string
 
-#### trim
+#### strip
 - string ```<string>```
 - mask_character ```<string>``` Default: " \t\n\r\0\x0B"
 
 ```JavaScript
-// Trim whitespaces
+// Strip whitespaces
 const string = '    Hello, world.    ';
-utility.string.trim(string);
+utility.string.strip(string);
 
-// Trim specified characters
+// Strip specified characters
 const string = '"Hello, world."';
-utility.string.trim(string, '"');
+utility.string.strip(string, '"');
 ```
 
-#### ltrim
+#### lstrip
 - string ```<string>```
 - mask_character ```<string>``` Default: " \t\n\r\0\x0B"
 
 ```JavaScript
-// Trim whitespaces
+// Strip whitespaces
 const string = '    Hello, world.';
-utility.string.trim(string);
+utility.string.lstrip(string);
 
-// Trim specified characters
+// Strip specified characters
 const string = '"Hello, world.';
-utility.string.trim(string, '"');
+utility.string.lstrip(string, '"');
 ```
 
-#### rtrim
+#### rstrip
 - string ```<string>```
 - mask_character ```<string>``` Default: " \t\n\r\0\x0B"
 
 ```JavaScript
-// Trim whitespaces
+// Strip whitespaces
 const string = 'Hello, world.    ';
-utility.string.trim(string);
+utility.string.rstrip(string);
 
-// Trim specified characters
+// Strip specified characters
 const string = 'Hello, world."';
-utility.string.trim(string, '"');
+utility.string.rstrip(string, '"');
 ```
 
 #### normalize
