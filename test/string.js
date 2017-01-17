@@ -16,6 +16,27 @@ var util = require('util'),
 // Test
 describe('karmia-util', function () {
     describe('string', function () {
+        describe('strip', function () {
+            it('Should strip whitespace', function () {
+                const string = 'Hello, world.';
+                expect(kstring.strip(util.format('\t   %s   \r\n', string))).to.be(string);
+            });
+
+            it('Should strip specified character', function () {
+                expect(kstring.strip('abc', 'bad')).to.be('c');
+            });
+
+            it('Should strip left string', function () {
+                const string = 'Hello, world.';
+                expect(kstring.lstrip(util.format('\t   %s   \r\n', string))).to.be(util.format('%s   \r\n', string));
+            });
+
+            it('Should strip right string', function () {
+                const string = 'Hello, world.';
+                expect(kstring.rstrip(util.format('\t   %s   \r\n', string))).to.be(util.format('\t   %s', string));
+            });
+        });
+
         describe('trim', function () {
             it('Should trim whitespace', function () {
                 const string = 'Hello, world.';
@@ -191,8 +212,8 @@ describe('karmia-util', function () {
                 expect(kstring.toBoolean('true')).to.be(true);
                 expect(kstring.toBoolean('True')).to.be(true);
                 expect(kstring.toBoolean('TRUE')).to.be(true);
-                expect(kstring.toBoolean('true1')).to.be(true);
-                expect(kstring.toBoolean('false1')).to.be(true);
+                expect(kstring.toBoolean('true1')).to.be(false);
+                expect(kstring.toBoolean('false1')).to.be(false);
             });
 
             it('Should be false', function () {
@@ -209,7 +230,7 @@ describe('karmia-util', function () {
 
             it('Should not be false', function () {
                 expect(kstring.toBoolean(1)).to.be(true);
-                expect(kstring.toBoolean('0')).to.be(true);
+                expect(kstring.toBoolean('0')).to.be(false);
                 expect(kstring.toBoolean(true)).to.be(true);
             });
         });
