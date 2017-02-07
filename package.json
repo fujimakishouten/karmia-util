@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "description": "Karmia utility suites",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",
@@ -17,7 +17,7 @@
         "karmia-utility-array": ">=0.1.0",
         "karmia-utility-crypto": ">=0.3.2",
         "karmia-utility-date": ">=0.3.3",
-        "karmia-utility-object": ">=0.1.0",
+        "karmia-utility-object": ">=0.1.1",
         "karmia-utility-random": ">=0.3.2",
         "karmia-utility-string": ">=0.7.0"
     },
