@@ -6,10 +6,10 @@
 
 
 // Variables
-var util = require('util'),
+const util = require('util'),
     expect = require('expect.js'),
     karmia_utility = require('../lib'),
-    utility = karmia_utility(),
+    utility = new karmia_utility(),
     kstring = utility.string;
 
 

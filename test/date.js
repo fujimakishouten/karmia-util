@@ -6,9 +6,9 @@
 
 
 // Variables
-var expect = require('expect.js'),
+const expect = require('expect.js'),
     karmia_utility = require('../'),
-    utility = karmia_utility(),
+    utility = new karmia_utility(),
     kdate = utility.date;
 
 
@@ -17,7 +17,7 @@ describe('karmia-utility', function () {
     describe('date', function () {
         describe('setOffset', function () {
             it('Should set offset', function () {
-                var offset = 3 * 60 * 60 * 1000;
+                const offset = 3 * 60 * 60 * 1000;
                 kdate.setOffset(offset);
 
                 delete kdate['date'];
@@ -28,7 +28,7 @@ describe('karmia-utility', function () {
 
         describe('setDate', function () {
             it('Should set date', function () {
-                var now = new Date(2016, 0, 1, 0, 0, 0),
+                const now = new Date(2016, 0, 1, 0, 0, 0),
                     offset = 0;
                 kdate.setDate(now);
                 kdate.setOffset(offset);
@@ -40,7 +40,7 @@ describe('karmia-utility', function () {
 
         describe('getDate', function (){
             it('Should get date', function () {
-                var now = new Date(2016, 0, 1, 0, 0, 0),
+                const now = new Date(2016, 0, 1, 0, 0, 0),
                     offset = 0;
                 kdate.setDate(now);
                 kdate.setOffset(offset);
@@ -51,7 +51,7 @@ describe('karmia-utility', function () {
 
         describe('getTime', function () {
             it('Should get time', function () {
-                var now = new Date(2016, 0, 1, 0, 0, 0),
+                const now = new Date(2016, 0, 1, 0, 0, 0),
                     offset = 0;
                 kdate.setDate(now);
                 kdate.setOffset(offset);
@@ -62,7 +62,7 @@ describe('karmia-utility', function () {
 
         describe('getYMD', function () {
             it('Should get YMD at 02:59:59.999', function () {
-                var now = new Date(2016, 0, 1, 2, 59, 59, 999),
+                const now = new Date(2016, 0, 1, 2, 59, 59, 999),
                     offset = 3 * 60 * 60 * 1000;
                 kdate.setDate(now);
                 kdate.setOffset(offset);
@@ -71,7 +71,7 @@ describe('karmia-utility', function () {
             });
 
             it('Should get YMD at 03:00:00.000', function () {
-                var now = new Date(2016, 0, 1, 3, 0, 0, 0),
+                const now = new Date(2016, 0, 1, 3, 0, 0, 0),
                     offset = 3 * 60 * 60 * 1000;
                 kdate.setDate(now);
                 kdate.setOffset(offset);
