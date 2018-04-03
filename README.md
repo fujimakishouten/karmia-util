@@ -4,7 +4,7 @@ Karmia utility suites
 ## Usage
 ```JavaScript
 const karmia_utility = require('karmia-utility'),
-    utility = karmia_utility();
+    utility = new karmia_utility();
 ```
 
 
