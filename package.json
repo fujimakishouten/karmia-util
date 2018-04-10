@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.11.1",
+    "version": "0.11.7",
     "description": "Karmia utility collection module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",
@@ -11,21 +11,21 @@
         "url": "https://github.com/fujimakishouten/karmia-utility.git"
     },
     "scripts": {
-        "build": "./node_modules/.bin/tsc",
-        "cobertura": "./node_modules/.bin/istanbul cover --report cobertura ./node_modules/mocha/bin/_mocha ./test",
-        "coverage": "./node_modules/.bin/istanbul cover --report html ./node_modules/mocha/bin/_mocha ./test",
+        "build": "tsc",
+        "cobertura": "istanbul cover --report cobertura ./node_modules/mocha/bin/_mocha ./test",
+        "coverage": "istanbul cover --report html ./node_modules/mocha/bin/_mocha ./test",
         "postinstall": "npm run build",
-        "test": "./node_modules/.bin/mocha ./test"
+        "test": "mocha ./test"
     },
     "dependencies": {
         "@types/mocha": "^5.0.0",
         "@types/node": "^9.6.2",
-        "karmia-utility-array": "^0.3.0",
-        "karmia-utility-crypto": "^0.5.0",
-        "karmia-utility-date": "^0.5.0",
-        "karmia-utility-object": "^0.3.1",
-        "karmia-utility-random": "^0.5.2",
-        "karmia-utility-string": "^0.9.1",
+        "karmia-utility-array": "^0.3.3",
+        "karmia-utility-crypto": "^0.5.4",
+        "karmia-utility-date": "^0.5.6",
+        "karmia-utility-object": "^0.3.4",
+        "karmia-utility-random": "^0.5.10",
+        "karmia-utility-string": "^0.9.5",
         "typescript": "^2.8.1"
     },
     "devDependencies": {
