@@ -6,9 +6,9 @@
 
 
 // Import modules
+import KarmiaUtility from "../";
 import crypto = require("crypto");
-import KarmiaUtility = require("../");
-const expect = require("expect.js");
+import expect = require("expect.js");
 
 
 // Variables

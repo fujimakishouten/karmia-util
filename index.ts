@@ -6,12 +6,12 @@
 
 
 // Import modules
-import KarmiaUtilityArray = require("karmia-utility-array");
-import KarmiaUtilityCrypto = require("karmia-utility-crypto");
-import KarmiaUtilityDate = require("karmia-utility-date");
-import KarmiaUtilityObject = require("karmia-utility-object");
-import KarmiaUtilityRandom = require("karmia-utility-random");
-import KarmiaUtilityString = require("karmia-utility-string");
+import KarmiaUtilityArray from "karmia-utility-array";
+import KarmiaUtilityCrypto from "karmia-utility-crypto";
+import KarmiaUtilityDate from "karmia-utility-date";
+import KarmiaUtilityObject from "karmia-utility-object";
+import KarmiaUtilityRandom from "karmia-utility-random";
+import KarmiaUtilityString from "karmia-utility-string";
 
 
 /**
@@ -52,7 +52,7 @@ class KarmiaUtility {
 
 
 // Export module
-export = KarmiaUtility;
+export default KarmiaUtility;
 
 
 

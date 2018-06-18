@@ -6,9 +6,9 @@
 
 
 // Import modules;
-import KarmiaUtility = require("../");
-const util = require("util");
-const expect = require("expect.js");
+import KarmiaUtility from "../";
+import util = require("util");
+import expect = require("expect.js");
 
 // Variables
 const utility = new KarmiaUtility();
