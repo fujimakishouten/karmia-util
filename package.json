@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.12.0",
+    "version": "0.12.1",
     "description": "Karmia utility collection module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",
@@ -19,12 +19,12 @@
         "test": "npm run build:dev && _mocha ./test"
     },
     "dependencies": {
-        "karmia-utility-array": "^0.4.0",
-        "karmia-utility-crypto": "^0.6.0",
-        "karmia-utility-date": "^0.6.0",
-        "karmia-utility-object": "^0.4.0",
-        "karmia-utility-random": "^0.6.0",
-        "karmia-utility-string": "^0.10.2",
+        "karmia-utility-array": "^0.4.1",
+        "karmia-utility-crypto": "^0.6.2",
+        "karmia-utility-date": "^0.6.1",
+        "karmia-utility-object": "^0.4.1",
+        "karmia-utility-random": "^0.6.1",
+        "karmia-utility-string": "^0.10.3",
         "typescript": "^2.8.1"
     },
     "devDependencies": {
