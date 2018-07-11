@@ -317,6 +317,26 @@ utility.string.random(16, {lower: false, special: false});
 utility.random.integer(); // 0〜Number.MAX_SAFE_INTEGER
 ```
 
+## sequence
+
+### sequence
+
+#### constructor
+- adapter ```<object>``` KarmiaUtilitySequenceAdapter object
+                         Default: KarmiaUtilitySequenceAdapterNumber
+- initial_value ```<*>``` Default: undefined
+
+```JavaScript
+const sequence = new utility.sequence();
+```
+
+#### get
+```javascript
+const sequence = new utility.sequence();
+await utility.get();
+```
+
+
 ## string
 
 ### string

@@ -12,6 +12,19 @@ import KarmiaUtilityDate from "karmia-utility-date";
 import KarmiaUtilityObject from "karmia-utility-object";
 import KarmiaUtilityRandom from "karmia-utility-random";
 import KarmiaUtilityString from "karmia-utility-string";
+import KarmiaUtilitySequence from "karmia-utility-sequence";
+import {
+    KarmiaUtilitySequenceAdapterNumber,
+    KarmiaUtilitySequenceAdapterTime
+} from "karmia-utility-sequence";
+
+
+// Export modulesee
+export {
+    KarmiaUtilitySequenceAdapter,
+    KarmiaUtilitySequenceAdapterNumber,
+    KarmiaUtilitySequenceAdapterTime
+} from "karmia-utility-sequence";
 
 
 /**
@@ -25,12 +38,14 @@ class KarmiaUtility {
      */
     public options: {[index: string]: any};
 
-    public array: KarmiaUtilityArray;
     public crypto: KarmiaUtilityCrypto;
     public date: KarmiaUtilityDate;
-    public object: KarmiaUtilityObject;
     public random: KarmiaUtilityRandom;
-    public string: KarmiaUtilityString;
+    public array = KarmiaUtilityArray;
+    public object = KarmiaUtilityObject;
+    public string = KarmiaUtilityString;
+    public sequence = KarmiaUtilitySequence;
+    public sequence_adapter: {[index: string]: any} = {};
 
     /**
      * Constructor
@@ -41,12 +56,13 @@ class KarmiaUtility {
     constructor(options?: {[index: string]: any}) {
         this.options = options || {};
 
-        this.array = KarmiaUtilityArray;
         this.crypto = new KarmiaUtilityCrypto(this.options.crypto || this.options);
         this.date = new KarmiaUtilityDate(this.options.date || this.options);
-        this.object = KarmiaUtilityObject;
         this.random = new KarmiaUtilityRandom(this.options.random || this.options);
-        this.string = KarmiaUtilityString;
+        this.sequence_adapter = {
+            number: KarmiaUtilitySequenceAdapterNumber,
+            time: KarmiaUtilitySequenceAdapterTime
+        }
     }
 }
 

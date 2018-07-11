@@ -1,6 +1,6 @@
 {
     "name": "karmia-utility",
-    "version": "0.12.1",
+    "version": "0.13.0",
     "description": "Karmia utility collection module.",
     "homepage": "https://github.com/fujimakishouten/karmia-utility",
     "license": "MIT",
@@ -24,6 +24,7 @@
         "karmia-utility-date": "^0.6.1",
         "karmia-utility-object": "^0.4.1",
         "karmia-utility-random": "^0.6.1",
+        "karmia-utility-sequence": "^0.1.1",
         "karmia-utility-string": "^0.10.3",
         "typescript": "^2.8.1"
     },
@@ -39,6 +40,6 @@
         "tslint-eslint-rules": "^5.1.0"
     },
     "engines": {
-        "node": ">=4.0.0"
+        "node": ">=8.0.0"
     }
 }
